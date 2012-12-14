@@ -1,5 +1,5 @@
 ﻿/**
- * jQuery upload v1.1
+ * jQuery upload v1.2
  * http://www.ponxu.com
  *
  * @author xwz
@@ -34,7 +34,7 @@
 		form.attr("target", frameName).attr('action', opts.url);
 		
 		// form中增加数据域
-		var formHtml = '<input type="file" name="' + opts.fileName + '">';
+		var formHtml = '<input type="file" name="' + opts.fileName + '" onchange="onChooseFile(this)">';
 		for (key in opts.params) {
 			formHtml += '<input type="hidden" name="' + key + '" value="' + opts.params[key] + '">';
 		}
@@ -59,9 +59,12 @@
 		
 		// 文件框
 		var fileInput = $('input[type=file][name=' + opts.fileName + ']', form);
-		fileInput.change(function() {
-			form.submit();
-		});
 		fileInput.click();
 	};
 })(jQuery);
+
+// 选中文件, 提交表单(开始上传)
+var onChooseFile = function(fileInputDOM) {
+	var form = $(fileInputDOM).parent();
+	form.submit();
+};

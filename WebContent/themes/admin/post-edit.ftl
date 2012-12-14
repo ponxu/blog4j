@@ -71,7 +71,7 @@
 <script type="text/javascript" src="${adminPath}/js/markdown/wmd.js"></script>
 <script type="text/javascript" src="${adminPath}/js/markdown/showdown.js"></script>
 <script type="text/javascript" src="${adminPath}/js/wmd-pack.js"></script>
-<script type="text/javascript" src="${adminPath}/js/jquery.upload-1.1.js"></script>
+<script type="text/javascript" src="${adminPath}/js/jquery.upload.js"></script>
 <script type="text/javascript">
 convertHTMLWhenSubmit = false;
 WEB_ROOT = "${ctxPath}";
