@@ -60,6 +60,10 @@
 				DAO.execute("insert into bj_setting values('analyticscode','统计代码','" + analyticscode + "');");
 				DAO.execute("insert into bj_setting values('commentcode','评论代码','" + commentcode + "');");
 				
+				// 
+				DAO.execute("insert into bj_setting values('weibocode','微薄代码','');");
+				DAO.execute("insert into bj_setting values('sharecode','分享代码','');");
+				
 				response.sendRedirect(ctx + "/admin");
 				return;
 			} catch (Throwable t) {

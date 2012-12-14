@@ -11,7 +11,7 @@ public class PageInfo {
 	private int pageSize;
 	private int pageCount;
 	private String url = "";
-	
+
 	public PageInfo(int currentIndex, int pageSize) {
 		this.currentIndex = currentIndex;
 		this.pageSize = pageSize;
@@ -66,7 +66,7 @@ public class PageInfo {
 		return currentIndex > 1 ? currentIndex - 1 : 1;
 	}
 
-	private String rightParamUrl() {
+	public String getRightParamUrl() {
 		if (url.indexOf("?") > -1)
 			return url + "&page=";
 		else
@@ -74,11 +74,11 @@ public class PageInfo {
 	}
 
 	public String getNextUrl() {
-		return rightParamUrl() + getNextIndex();
+		return getRightParamUrl() + getNextIndex();
 	}
 
 	public String getPreUrl() {
-		return rightParamUrl() + getPreIndex();
+		return getRightParamUrl() + getPreIndex();
 	}
 
 }

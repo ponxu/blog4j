@@ -4,3 +4,6 @@ insert into bj_setting values('loginname','登录用户名','admin');
 insert into bj_setting values('loginpassword','登录密码',md5('admin'));
 insert into bj_setting values('analyticscode','统计代码','');
 insert into bj_setting values('commentcode','评论代码','');
+
+insert into bj_setting values('weibocode','微薄代码','');
+insert into bj_setting values('sharecode','分享代码','');

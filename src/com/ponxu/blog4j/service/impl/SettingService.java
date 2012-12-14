@@ -34,12 +34,12 @@ public class SettingService implements ISettingService {
 		return Integer.parseInt(StringUtils.ifEmpty(str, "0"));
 	}
 
-	public void set(String name, String value) {
+	public void set(String name, String value, String description) {
 		String v = get(name);
 		clear();
 
 		if (v == null) {
-			DAO.execute("insert into bj_setting(name,value) values(?,?)", name, value);
+			DAO.execute("insert into bj_setting(name,value,description) values(?,?,?)", name, value, description);
 		} else {
 			DAO.execute("update bj_setting set value=? where name=?", value, name);
 		}

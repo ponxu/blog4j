@@ -18,6 +18,8 @@ public class SettingEdit extends AdminOAuthHandler {
 	public void post() {
 		String name = getParam("name");
 		String value = getParam("value");
+		String description = getParam("description");
+		
 		String old = settingService.get(name);
 
 		if (StringUtils.equalsIgnoreCase(name, "loginpassword")) {
@@ -29,7 +31,7 @@ public class SettingEdit extends AdminOAuthHandler {
 
 		// 有改动
 		if (BeanUtils.isNot(value, old))
-			settingService.set(name, value);
+			settingService.set(name, value, description);
 
 		renderString(String.valueOf(1));
 	}

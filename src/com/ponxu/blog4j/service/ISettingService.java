@@ -13,7 +13,7 @@ public interface ISettingService {
 
 	public int getInt(String name);
 
-	public void set(String name, String value);
+	public void set(String name, String value, String description);
 
 	/** 所有设置项 */
 	public Map<String, String> asObject();
