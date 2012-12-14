@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<!--=================== Service begin =================== -->
+	<bean id="tagService" class="com.ponxu.blog4j.service.impl.TagService" />
+	<bean id="settingService" class="com.ponxu.blog4j.service.impl.SettingService" />
+	<bean id="postService" class="com.ponxu.blog4j.service.impl.PostService">
+		<property name="tagService" />
+	</bean>
+	<!--=================== Service end ===================== -->
+
+
+	<!--=================== Handler begin =================== -->
+	<bean id="index" class="com.ponxu.blog4j.web.Index"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	<bean id="postDetail" class="com.ponxu.blog4j.web.PostDetail"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	<bean id="pageDetail" class="com.ponxu.blog4j.web.PageDetail"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	<bean id="search" class="com.ponxu.blog4j.web.Search"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	<bean id="searchByTag" class="com.ponxu.blog4j.web.SearchByTag"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	
+	<!-- +++++++++++++ admin +++++++++++++++++++++++++++++++++ -->
+	<bean id="login" class="com.ponxu.blog4j.web.admin.Login"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	<bean id="logout" class="com.ponxu.blog4j.web.admin.Logout"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	
+	<bean id="postEdit" class="com.ponxu.blog4j.web.admin.PostEdit"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	<bean id="postDelete" class="com.ponxu.blog4j.web.admin.PostDelete"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	<bean id="postQuery" class="com.ponxu.blog4j.web.admin.PostQuery"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	
+	<bean id="tagEdit" class="com.ponxu.blog4j.web.admin.TagEdit"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	<bean id="tagDelete" class="com.ponxu.blog4j.web.admin.TagDelete"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	
+	<bean id="settingEdit" class="com.ponxu.blog4j.web.admin.SettingEdit"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	
+	<bean id="fileManage" class="com.ponxu.blog4j.web.admin.FileManage"
+		scope="protype">
+		<property name="tagService" />
+		<property name="settingService" />
+		<property name="postService" />
+	</bean>
+	<!--=================== Handler end ===================== -->
+</beans>

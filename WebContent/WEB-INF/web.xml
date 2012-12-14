@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>blog4j</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- ioc加载 -->	<context-param>
+		<param-name>xml</param-name>
+		<param-value>beans.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>package</param-name>
+		<param-value>
+			com.ponxu.blog4j.service,
+			com.ponxu.blog4j.web
+		</param-value>
+	</context-param>
+	<listener>
+		<listener-class>com.ponxu.run.web.BeanLoaderListener</listener-class>
+	</listener>
+	
+	<!-- Blog -->
+	<filter>
+		<filter-name>Blog</filter-name>
+		<filter-class>com.ponxu.blog4j.web.BlogFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Blog</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- MVC -->
+	<filter>
+		<filter-name>MVC</filter-name>
+		<filter-class>com.ponxu.run.web.RequestFilter</filter-class>
+		<init-param>
+			<param-name>handlerFactory</param-name>
+			<param-value></param-value>
+		</init-param>
+		<init-param>
+			<param-name>handlerMapping</param-name>
+			<param-value>mapping.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>handlerPackage</param-name>
+			<param-value>com.ponxu.blog4j.web</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>MVC</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>

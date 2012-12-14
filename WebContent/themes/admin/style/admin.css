@@ -1,0 +1,245 @@
+/*------通用----------------------------------*/
+body,form {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	font-family: Georgia, "Lucida Grande", Arial;
+	color: #333;
+}
+
+body {
+	background: url("../images/bg.png");
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #FF7700;
+}
+
+table,td {
+	border: 1px solid #D1D1D3;
+	border-collapse: collapse;
+}
+
+input[type=text],select,textarea {
+	border: 1px solid #C0C0C0;
+	font-size: 14px;
+	padding: 5px;
+	outline: none;
+	resize: none;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.h1 {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.small {
+	font-size: 12px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear: both;
+}
+
+.rbox {
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.shadow,.shadowfocus:focus,.shadowhover:hover {
+	-webkit-box-shadow: 0 0 3px #999;
+	-moz-box-shadow: 0 0 3px #999;
+}
+
+.shadow2,.shadowfocus2:focus,.shadowhover2:hover {
+	-webkit-box-shadow: 0 0 3px #000;
+	-moz-box-shadow: 0 0 3px #000;
+}
+
+.btn {
+	background-color: #EEE;
+	color: #666;
+	border: 1px solid #A7A7A7;
+	padding: 5px 12px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.btn2 {
+	background-color: #3C4348;
+	border: 1px solid #000;
+	color: #FAFAFA;
+	padding: 5px 12px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+/*------整体宽----------------------------------*/
+#header,#content-wrapper,#footer {
+	width: 925px;
+	margin: 1px auto;
+}
+
+/*------头----------------------------------*/
+#header-wrapper {
+	color: #C2C3C3;
+	background: #3C4348;
+	padding: 15px 0px;
+}
+
+#header-wrapper a {
+	color: #FFF;
+}
+
+#header-wrapper a:hover {
+	color: #FF7700;
+}
+
+/*---头-功能-------*/
+#header #admin-func {
+	margin-top: 15px;
+}
+
+#header #admin-func a {
+	margin-left: 10px;
+}
+
+/*-----内容-----------------------------------*/
+#content-wrapper {
+	margin-top: 10px;
+}
+
+/*---内容-编辑-------*/
+#post-edit {
+	padding: 40px;
+	background-color: #FFF;
+}
+
+#post-edit #title {
+	width: 600px;
+	padding: 5px 15px;
+	font-size: 22px;
+}
+
+#post-edit label {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+#post-edit #btns {
+	text-align: right;
+	margin-top: 10px;
+}
+
+#post-edit #btns input.btn2 {
+	margin-left: 10px;
+}
+
+/*---内容-侧边-------*/
+#post-side {
+	width: 200px;
+	padding: 0px 5px 20px 20px;
+	background-color: #F3F3F3;
+}
+
+#tag-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#tag-list li {
+	float: left;
+	border: 1px solid #A9A9A9;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding: 2px 6px;
+	margin: 3px;
+	font-size: 12px;
+}
+
+#tag-list li:hover {
+	cursor: pointer;
+}
+
+#tag-list li.checked {
+	border: 1px solid #FF7700;
+	color: #FF7700;
+}
+
+#tag-list li input[type=checkbox] {
+	display: none;
+}
+
+#post-side>label {
+	display: block;
+	margin: 20px 0px 5px 0px;
+}
+
+#post-side>select {
+	width: 160px;
+}
+
+#post-side>textarea,#post-side>#newtagname {
+	width: 150px;
+}
+
+#post-side>textarea {
+	height: 60px;
+}
+/*----------*/
+
+/*-----表格-----------------------------------*/
+.listt {
+	background-color: #FFF;
+	border: 1px solid #989797;
+}
+
+.listt td {
+	padding: 5px;
+	border: none;
+	border-bottom: 1px dashed #989797;
+}
+
+.listt thead td {
+	background-color: #AAA;
+	color: #FFF;
+}
+
+.listt tbody tr:hover {
+	background-color: #eaeaea;
+}
+
+.listt input[type=button] {
+	padding: 2px 5px;
+	font-size: 12px;
+}
+
+.listt input[type=text] {
+	padding: 3px 5px;
+}
+.navbar {
+	text-align: center;
+	margin: 10px 0px;
+}

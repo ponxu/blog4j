@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<handlers>
+	<handler name="index" url="/" />
+	<handler name="postDetail" url="/post/(\d+)" />
+	<handler name="postDetail" url="/note/(\d+)" />
+	<handler name="pageDetail" url="/page/(.+)" />
+	<handler name="search" url="/search" />
+	<handler name="searchByTag" url="/tag/(\d+)" />
+	
+	<!-- ============ admin ============================== -->
+	<handler name="login" url="/admin" />
+	<handler name="login" url="/admin/login" />
+	<handler name="logout" url="/admin/logout" />
+	
+	<handler name="postEdit" url="/admin/post-edit/(\d+)" />
+	<handler name="postDelete" url="/admin/post-del/(\d+)" />
+	<handler name="postQuery" url="/admin/post-query" />
+	
+	<handler name="tagEdit" url="/admin/tag-edit" />
+	<handler name="tagDelete" url="/admin/tag-del/(\d+)" />
+	
+	<handler name="settingEdit" url="/admin/setting" />
+	
+	<handler name="fileManage" url="/admin/upload" />
+	<handler name="fileManage" url="/file/(.*)" />
+</handlers>
