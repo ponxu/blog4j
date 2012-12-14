@@ -27,7 +27,7 @@
 					</li>
 					<li><a class="icon_mail" href="#">mail</a>
 					</li>
-					<li><a class="icon_weibo" href="http://weibo.com/wpuinet"
+					<li><a class="icon_weibo" href="http://weibo.com/xwz789"
 						target="_blank">weibo</a>
 					</li>
 				</ul>
