@@ -139,6 +139,12 @@ function cancel() {
 // 提交表单
 function save() {
 	var f = $("#editform");
+	
+	var url = $("textarea[name=url]").val();
+	if (url.indexOf("/") > -1) {
+		$("textarea[name=url]").val(url.substr(1));
+	}
+	
 	$.ajax({
 		url: f.attr("action"),
 		data: f.serialize(),
@@ -154,6 +160,13 @@ function save() {
 				$("textarea[name=content]").focus();
 				return false;
 			}
+			
+			if ($("select[name=type]").val() == "page" && url == "") {
+				alert("页面必须指定一个url!");
+				$("textarea[name=url]").focus();
+				return false;
+			}
+			
 			return true;
 		},
 		success: function(postid) {
