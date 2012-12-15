@@ -20,14 +20,20 @@ Blog4j是一个用Java实现的, 简洁的, 高效的个人独立博客.
 
 使用MySQL做为基础数据存储.
 
+截图
+
 文章编辑界面-截图
 ![文章编辑界面](http://blog4j.cloudfoundry.com/file/20121213071136432Screenshot20121213151046.png)
 
 默认主题-截图
 ![默认主题](http://blog4j.cloudfoundry.com/file/20121213071328474main.png)
 
+主题2-截图
+![主题2-截图](http://blog4j.cloudfoundry.com/file/20121215050640271simple2.png)
+
  * [把Blog4j部署到Cloud Foundry][cf]
  * [Blog4j下载地址][war]
 
-  [war]: http://blog4j.cloudfoundry.com/file/20121213062432027blog4j.war
+
+  [war]: http://blog4j.cloudfoundry.com/file/20121215050432849blog4j.war
   [cf]: http://blog4j.cloudfoundry.com/post/7
