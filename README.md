@@ -31,9 +31,12 @@ Blog4j是一个用Java实现的, 简洁的, 高效的个人独立博客.
 主题2-截图
 ![主题2-截图](http://blog4j.cloudfoundry.com/file/20121215050640271simple2.png)
 
+ * [Blog4j war包下载地址][war]
  * [把Blog4j部署到Cloud Foundry][cf]
- * [Blog4j下载地址][war]
-
+ * [把Blog4j部署到SAE][sae]
+ * [source on github][github]
 
   [war]: http://blog4j.cloudfoundry.com/file/20121215050432849blog4j.war
   [cf]: http://blog4j.cloudfoundry.com/post/7
+  [github]: https://github.com/ponxu/blog4j
+  [sae]: http://blog4j.cloudfoundry.com/post/8
