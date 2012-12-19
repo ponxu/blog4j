@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,6 +26,8 @@ public class Config {
 	public static boolean isSAE = false;
 	/** 是否 Cloud Foundry */
 	public static boolean isCloudFoundry = false;
+	/** 是否 BAE */
+	public static boolean isBAE = false;
 
 	public static String theme = "simple";
 	public static int pageSize = 15;
@@ -42,7 +46,7 @@ public class Config {
 	public static String dbName2;
 	public static String dbHost2;
 	public static int dbPort2;
-	
+
 	// CloudFoundry mongodb
 	public static String mgUser;
 	public static String mgPassword;
@@ -67,7 +71,7 @@ public class Config {
 			loadCloudFoundry();
 		}
 	}
-	
+
 	/** 判断是否SAE */
 	private static boolean checkSAE() {
 		try {
@@ -79,7 +83,7 @@ public class Config {
 		}
 		return false;
 	}
-	
+
 	/** 判断是否CloudFoundry */
 	private static boolean checkCloudFoundry() {
 		return StringUtils.isNotEmpty(System.getenv("VCAP_SERVICES"));
@@ -94,16 +98,20 @@ public class Config {
 
 			// 基础设置
 			theme = prop.getProperty("theme", "simple");
-			pageSize = BeanUtils.cast(prop.getProperty("page_size", "15"), int.class);
-			cache = BeanUtils.cast(prop.getProperty("cache", "false"), Boolean.class);
-			sublength = BeanUtils.cast(prop.getProperty("sublength", "500"), int.class);
+			pageSize = BeanUtils.cast(prop.getProperty("page_size", "15"),
+					int.class);
+			cache = BeanUtils.cast(prop.getProperty("cache", "false"),
+					Boolean.class);
+			sublength = BeanUtils.cast(prop.getProperty("sublength", "500"),
+					int.class);
 
 			// 本地JDBC配置
 			dbUser = dbUser2 = prop.getProperty("db_user");
 			dbPassword = dbPassword2 = prop.getProperty("db_password");
 			dbName = dbName2 = prop.getProperty("db_name");
 			dbHost = dbHost2 = prop.getProperty("db_host", "127.0.1");
-			dbPort = dbPort2 = BeanUtils.cast(prop.getProperty("db_port", "3307"), int.class);
+			dbPort = dbPort2 = BeanUtils.cast(
+					prop.getProperty("db_port", "3307"), int.class);
 
 			in.close();
 		} catch (IOException e) {
@@ -116,7 +124,7 @@ public class Config {
 		try {
 			String jsonStr = System.getenv("VCAP_SERVICES");
 			JSONObject json = new JSONObject(jsonStr);
-			
+
 			// mysql
 			JSONObject mysqlCfg = json.getJSONArray("mysql-5.1")
 					.getJSONObject(0).getJSONObject("credentials");
@@ -125,7 +133,7 @@ public class Config {
 			dbName = dbName2 = mysqlCfg.getString("name");
 			dbHost = dbHost2 = mysqlCfg.getString("host");
 			dbPort = dbPort2 = mysqlCfg.getInt("port");
-			
+
 			// mongodb用于文件存储
 			JSONObject mgCfg = json.getJSONArray("mongodb-2.0")
 					.getJSONObject(0).getJSONObject("credentials");
@@ -150,7 +158,33 @@ public class Config {
 		dbHost = "w.rdc.sae.sina.com.cn";
 		dbHost2 = "r.rdc.sae.sina.com.cn";
 	}
-	
+
+	/** 检查是否BAE环境, 若是加载特殊设置 (NM, 百度这个配置居然放在Header里面????!! 奇葩啊!!!!) */
+	public static void checkAndLoadBAE(HttpServletRequest request) {
+		if (!isBAE) {
+			String host = request.getHeader("BAE_ENV_ADDR_SQL_IP");
+			String port = request.getHeader("BAE_ENV_ADDR_SQL_PORT");
+			String username = request.getHeader("BAE_ENV_AK");
+			String password = request.getHeader("BAE_ENV_SK");
+
+			if (StringUtils.isEmpty(host) || StringUtils.isEmpty(port)
+					|| StringUtils.isEmpty(username)
+					|| StringUtils.isEmpty(password))
+				return;
+
+			synchronized (Config.class) {
+				if (!isBAE) {
+					dbUser = dbUser2 = username;
+					dbPassword = dbPassword2 = password;
+					// dbName = dbName2 = ""; // 在blog4j.proerpties中配置
+					dbHost = dbHost2 = host;
+					dbPort = dbPort2 = BeanUtils.cast(port, int.class);
+					isBAE = true;
+				}
+			}
+		}
+	}
+
 	public static String show() {
 		return "Config [isSAE=" + isSAE + ", isCloudFoundry=" + isCloudFoundry
 				+ ", theme=" + theme + ", pageSize=" + pageSize + ", cache="

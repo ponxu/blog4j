@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ponxu.blog4j.Config;
 import com.ponxu.blog4j.dao.DAO;
 import com.ponxu.blog4j.dao.MongoDAO;
 
@@ -24,10 +25,16 @@ public class BlogFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
 
-		chain.doFilter(request, response);
+		// 加载BAE配置, BAE
+		Config.checkAndLoadBAE(request);
 
-		DAO.close();
-		MongoDAO.close();
+		try {
+			chain.doFilter(request, response);
+		} finally {
+			DAO.close();
+			MongoDAO.close();
+		}
+		
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {
