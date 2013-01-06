@@ -51,19 +51,19 @@
 				<version>1.0.0.M4</version>
 				<configuration>
 					<target>http://api.cloudfoundry.com/</target>
-					<username>xwz689@gmail.com</username>
-					<password>ss131988oo</password>
+					<username>yourusername</username>
+					<password>yourpassword</password>
 					<appname>blog4j2013</appname>
 					<url>blog4j2013.cloudfoundry.com</url>
 					<memory>512</memory>
 					<services>
 						<service>
 							<vendor>mysql</vendor>
-							<name>mysql-2013</name>
+							<name>mysql-blog4j</name>
 						</service>
 						<service>
 							<vendor>mongodb</vendor>
-							<name>mongodb-2013</name>
+							<name>mongodb-blog4j</name>
 						</service>
 					</services>
 				</configuration>
