@@ -1,7 +1,13 @@
+mvn=================================================
+mvn cf:push
+mvn cf:update
+
+
+vmc=================================================
+
 部署在cloudfoundry
 http://cndocs.cloudfoundry.com/tools/vmc/installing-vmc.html
-
-
+PostQuery.javaPostQuery.java
 
 安装 Ruby(1.8.7 或 1.9.2) 和  RubyGems (这个ruby应该自带了)
 
