@@ -32,7 +32,7 @@
 			<label>设置标签</label>
 			<ul id="tag-list">
 			<#list tags as tag>
-				<li><input type="checkbox" name="tagid" value="${tag.id}" ${post.tags?seq_contains(tag)?string("checked","")}>${tag.name}</li>
+				<li><input type="checkbox" name="tagid" value="${tag.id}" <#list post.tags as ptag><#if tag.id=ptag.id>checked</#if></#list>>${tag.name}</li>
 			</#list>
 			</ul>
 			<input type="text" id="newtagname" class="shadowfocus" placeholder="新标签" onkeyup="addNewTag()">
