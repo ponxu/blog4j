@@ -14,7 +14,6 @@ import com.ponxu.blog4j.service.IPostService;
  */
 public class Post implements java.io.Serializable {
 	private static final long serialVersionUID = -7679909637903047354L;
-	private static final MarkdownProcessor processor = new MarkdownProcessor();
 	
 	private int id;
 	private String url = "";
@@ -99,7 +98,7 @@ public class Post implements java.io.Serializable {
 	}
 	
 	public String getContentHtml() {
-		return processor.markdown(content);
+		return new MarkdownProcessor().markdown(content);
 	}
 
 	@Override
