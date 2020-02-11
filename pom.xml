@@ -27,7 +27,7 @@
 		<pluginRepository>
 			<id>repository.springframework.maven.milestone</id>
 			<name>Spring Framework Maven Milestone Repository</name>
-			<url>http://maven.springframework.org/milestone</url>
+			<url>https://maven.springframework.org/milestone</url>
 		</pluginRepository>
 	</pluginRepositories>
 
